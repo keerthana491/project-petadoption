@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Pet Details - Happy Paws</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+    background: #f1f8f6;
+}
+
+/* Navigation */
+nav {
+    background: #00897b;
+    padding: 18px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffe0b2;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #00695c;
+    margin-top: 30px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+}
+
+/* Pet Card */
+.card {
+    width: 650px;
+    max-width: 85%;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 8px 20px #bbb;
+    text-align: center;
+}
+
+/* Pet Icon */
+.pet-icon {
+    font-size: 90px;
+    background: #e0f2f1;
+    width: 140px;
+    height: 140px;
+    line-height: 140px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+h2 {
+    color: #00897b;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.breed {
+    color: #777;
+    font-size: 18px;
+}
+
+/* Details */
+.details {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+.box {
+    background: #f1f8f6;
+    padding: 15px;
+    width: 120px;
+    border-radius: 15px;
+}
+
+.box b {
+    display: block;
+    color: #00695c;
+    margin-bottom: 5px;
+}
+
+/* Personality */
+.personality {
+    background: #fff3e0;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+.personality h3 {
+    color: #e65100;
+    margin: 5px;
+}
+
+/* Button */
+.adopt {
+    display: inline-block;
+    background: #ff7043;
+    color: white;
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.adopt:hover {
+    background: #e64a19;
+}
+
+/* Footer */
+footer {
+    background: #00695c;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="pets.html">Pets</a>
+    <a href="details.html">Details</a>
+    <a href="adoption.html">Adopt</a>
+    <a href="summary.php">Summary</a>
+    <a href="payment.html">Payment</a>
+</nav>
+
+<h1>🐾 Meet Your New Friend 🐾</h1>
+
+<p class="subtitle">
+    Learn more about your favourite pet ❤️
+</p>
+
+<!-- Pet Details -->
+<div class="card">
+
+    <div class="pet-icon" id="petIcon">🐾</div>
+
+    <h2 id="petName">Pet Name</h2>
+
+    <p class="breed" id="petBreed">Breed</p>
+
+    <div class="details">
+
+        <div class="box">
+            <b>🎂 Age</b>
+            <span id="petAge">-</span>
+        </div>
+
+        <div class="box">
+            <b>👤 Gender</b>
+            <span id="petGender">-</span>
+        </div>
+
+        <div class="box">
+            <b>❤️ Health</b>
+            <span>Healthy</span>
+        </div>
+
+        <div class="box">
+            <b>💉 Vaccine</b>
+            <span>Yes</span>
+        </div>
+
+    </div>
+
+    <div class="personality">
+        <h3>🌟 Personality</h3>
+        <p id="personality">
+            Friendly, playful and loving 🥰
+        </p>
+    </div>
+
+    <a id="adoptButton" class="adopt" href="#">
+        ❤️ Adopt Me
+    </a>
+
+</div>
+
+<footer>
+    🐾 Happy Paws Pet Adoption ❤️
+    <br>
+    Give a pet a loving home!
+</footer>
+
+
+<script>
+
+/* Get pet name from Page 2 */
+var pet = new URLSearchParams(window.location.search).get("pet");
+
+/* Pet information */
+var pets = {
+
+    "Bruno": ["Bruno", "Labrador", "2 Years", "Male", "🐶",
+              "Friendly, playful and very loving 🥰"],
+
+    "Max": ["Max", "Beagle", "3 Years", "Male", "🐶",
+            "Active, cheerful and friendly 🐾"],
+
+    "Rocky": ["Rocky", "Golden Retriever", "2 Years", "Male", "🐕",
+              "Gentle, smart and playful ❤️"],
+
+    "Simba": ["Simba", "Indian Pariah", "1 Year", "Male", "🐕",
+              "Loyal, energetic and caring 🥰"],
+
+    "Luna": ["Luna", "Persian Cat", "1 Year", "Female", "🐱",
+             "Calm, cute and affectionate 💕"],
+
+    "Bella": ["Bella", "Siamese Cat", "2 Years", "Female", "🐱",
+              "Playful, active and loving 🐾"],
+
+    "Coco": ["Coco", "Indian Shorthair", "1 Year", "Female", "🐈",
+             "Sweet, friendly and curious ❤️"],
+
+    "Snowy": ["Snowy", "Rabbit", "1 Year", "Female", "🐇",
+              "Cute, gentle and peaceful 🌸"],
+
+    "Rio": ["Rio", "Parrot", "2 Years", "Male", "🦜",
+            "Colorful, active and cheerful 🌈"],
+
+    "Shelly": ["Shelly", "Tortoise", "4 Years", "Not specified", "🐢",
+               "Calm, quiet and easy-going 🌿"]
+};
+
+
+/* Display selected pet */
+if (pets[pet]) {
+
+    document.getElementById("petName").innerHTML = pets[pet][0];
+    document.getElementById("petBreed").innerHTML = pets[pet][1];
+    document.getElementById("petAge").innerHTML = pets[pet][2];
+    document.getElementById("petGender").innerHTML = pets[pet][3];
+    document.getElementById("petIcon").innerHTML = pets[pet][4];
+    document.getElementById("personality").innerHTML = pets[pet][5];
+
+    /* Send selected pet to Adoption page */
+    document.getElementById("adoptButton").href =
+        "adoption.html?pet=" + pets[pet][0];
+
+}
+
+</script>
+
+</body>
+</html>
+
+    
+
+
+
+        
