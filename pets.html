@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Available Pets - Happy Paws</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, "Segoe UI Emoji", sans-serif;
+    background: #f1f8f6;
+    text-align: center;
+}
+
+nav {
+    background: #00897b;
+    padding: 18px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+    font-weight: bold;
+}
+
+h1 {
+    color: #00695c;
+    margin-top: 35px;
+}
+
+button {
+    background: #00897b;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    margin: 5px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff7043;
+}
+
+#message {
+    color: #666;
+    font-size: 18px;
+    margin: 30px;
+}
+
+#pets {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px;
+}
+
+.card {
+    background: white;
+    width: 200px;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 4px 12px #bbb;
+}
+
+.icon {
+    font-size: 55px;
+}
+
+.card h2 {
+    color: #00897b;
+}
+
+.badge {
+    background: #dcedc8;
+    padding: 5px 8px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+.details {
+    display: inline-block;
+    background: #ff7043;
+    color: white;
+    padding: 9px 15px;
+    margin-top: 12px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+footer {
+    background: #00695c;
+    color: white;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- Navigation -->
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="pets.html">Pets</a>
+<a href="details.html">Details</a>
+<a href="adoption.html">Adopt</a>
+<a href="summary.php">Summary</a>
+<a href="payment.html">Payment</a>
+
+</nav>
+
+
+<!-- Heading -->
+
+<h1>🐾 Available Pets 🐾</h1>
+
+<p>Choose your favourite category ❤️</p>
+
+
+<!-- Categories -->
+
+<button onclick="showPets('dog')">
+🐶 Dogs
+</button>
+
+<button onclick="showPets('cat')">
+🐱 Cats
+</button>
+
+<button onclick="showPets('other')">
+🐰 Other Pets
+</button>
+
+<button onclick="showPets('all')">
+🐾 All Pets
+</button>
+
+
+<p id="message">
+🐾 Please choose a category to view our pets
+</p>
+
+
+<!-- Pet Profiles -->
+
+<div id="pets"></div>
+
+
+<footer>
+
+🐾 Happy Paws Pet Adoption ❤️
+
+</footer>
+
+
+<script>
+
+var petList = [
+
+    ["Bruno", "Labrador", "dog", "🐶", "2 Years", "Male"],
+    ["Max", "Beagle", "dog", "🐶", "3 Years", "Male"],
+    ["Rocky", "Golden Retriever", "dog", "🐕", "2 Years", "Male"],
+    ["Simba", "Indian Pariah", "dog", "🐕", "1 Year", "Male"],
+
+    ["Luna", "Persian Cat", "cat", "🐱", "1 Year", "Female"],
+    ["Bella", "Siamese Cat", "cat", "🐱", "2 Years", "Female"],
+    ["Coco", "Indian Shorthair", "cat", "🐈", "1 Year", "Female"],
+
+    ["Snowy", "Rabbit", "other", "🐇", "1 Year", "Female"],
+    ["Rio", "Parrot", "other", "🦜", "2 Years", "Male"],
+    ["Shelly", "Tortoise", "other", "🐢", "4 Years", "Not specified"]
+
+];
+
+
+function showPets(type) {
+
+    var output = "";
+
+    for (var i = 0; i < petList.length; i++) {
+
+        if (type == "all" || petList[i][2] == type) {
+
+            output += `
+            
+            <div class="card">
+
+                <div class="icon">${petList[i][3]}</div>
+
+                <h2>${petList[i][0]}</h2>
+
+                <b>${petList[i][1]}</b>
+
+                <p>🎂 ${petList[i][4]}</p>
+
+                <p>👤 ${petList[i][5]}</p>
+
+                <span class="badge">❤️ Healthy</span>
+
+                <span class="badge">💉 Vaccinated</span>
+
+                <br>
+
+                <a class="details"
+                   href="details.html?pet=${petList[i][0]}">
+                   View Details
+                </a>
+
+            </div>
+            
+            `;
+        }
+    }
+
+    document.getElementById("pets").innerHTML = output;
+
+    document.getElementById("message").style.display = "none";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
