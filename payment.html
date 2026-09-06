@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Paws - Payment</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,"Segoe UI Emoji";
+    background:linear-gradient(135deg,#e0f7f4,#fff3e0);
+}
+nav{
+    background:#00897b;
+    padding:18px;
+    text-align:center;
+}
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-weight:bold;
+}
+h1{
+    text-align:center;
+    color:#00695c;
+}
+.container{
+    width:600px;
+    max-width:85%;
+    margin:30px auto;
+}
+.box{
+    background:white;
+    padding:25px;
+    margin:20px 0;
+    border-radius:25px;
+    box-shadow:0 5px 18px #bbb;
+}
+.center{text-align:center}
+.pet{font-size:60px}
+.fee{
+    background:#e0f2f1;
+    padding:15px;
+    border-radius:15px;
+}
+.methods{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+}
+label{
+    background:#f1f8f6;
+    padding:12px;
+    border-radius:12px;
+    cursor:pointer;
+}
+input[type=text],select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    box-sizing:border-box;
+    border:2px solid #ddd;
+    border-radius:10px;
+}
+button{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:25px;
+    background:#ff7043;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="pets.html">Pets</a>
+<a href="details.html">Details</a>
+<a href="adoption.html">Adopt</a>
+<a href="summary.php">Summary</a>
+<a href="payment.html">Payment</a>
+</nav>
+
+<h1>🐾 Bring Your New Friend Home 🐾</h1>
+
+<div class="container">
+
+<!-- Pet Passport -->
+
+<div class="box center">
+
+<h2>🪪 PET ADOPTION PASSPORT</h2>
+
+<div class="pet">🦜</div>
+
+<h2>Rio</h2>
+
+<p>Parrot ❤️</p>
+
+<div class="fee">
+
+<p>🐾 Adoption Fee : ₹2,500</p>
+<p>🩺 Care & Processing : ₹100</p>
+<hr>
+<h3>Total : ₹2,600</h3>
+
+</div>
+
+<p>✅ READY FOR ADOPTION</p>
+
+</div>
+
+
+<!-- Payment -->
+
+<div class="box">
+
+<h2 class="center">💳 Choose Your Payment Paw</h2>
+
+<form action="payment.php" method="POST">
+
+<div class="methods">
+
+<label>
+<input type="radio" name="method" value="UPI">
+📱 UPI
+</label>
+
+<label>
+<input type="radio" name="method" value="Google Pay">
+🟢 GPay
+</label>
+
+<label>
+<input type="radio" name="method" value="PhonePe">
+🔵 PhonePe
+</label>
+
+<label>
+<input type="radio" name="method" value="Paytm">
+💙 Paytm
+</label>
+
+<label>
+<input type="radio" name="method" value="Debit Card">
+💳 Debit Card
+</label>
+
+<label>
+<input type="radio" name="method" value="Credit Card">
+💳 Credit Card
+</label>
+
+<label>
+<input type="radio" name="method" value="Net Banking">
+🏦 Net Banking
+</label>
+
+<label>
+<input type="radio" name="method" value="Cash on Visit">
+🏠 Cash
+</label>
+
+</div>
+
+<br>
+
+<input type="text" name="details"
+placeholder="Enter payment details">
+
+<button type="submit">
+💳 Proceed to Payment
+</button>
+
+</form>
+
+</div>
+
+
+<div class="box center">
+
+🔐 <b>PAW-SECURE PAYMENT</b>
+
+<p>✓ Safe Payment &nbsp; ✓ OTP Verification</p>
+
+</div>
+
+</div>
+
+</body>
+</html>
